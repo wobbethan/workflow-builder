@@ -1,9 +1,10 @@
 import { Button, Checkbox } from '@synergycodes/overflow-ui';
 import { Edge, Node } from '@xyflow/react';
 import { useState } from 'react';
-import { Trans, useTranslation } from 'react-i18next';
 
 import styles from './delete-confirmation.module.css';
+
+import { t } from '@/features/i18n/t';
 
 type DeleteConfirmationProps = {
   nodes: Node[];
@@ -13,7 +14,6 @@ type DeleteConfirmationProps = {
 
 export function DeleteConfirmation({ nodes, edges, onShouldShowAgainChange }: DeleteConfirmationProps) {
   const [isChecked, setIsChecked] = useState(false);
-  const { t } = useTranslation();
 
   const parts = [
     nodes.length > 0 ? t(`deleteConfirmation.${nodes.length > 1 ? 'nodes' : 'node'}`) : '',
@@ -32,11 +32,7 @@ export function DeleteConfirmation({ nodes, edges, onShouldShowAgainChange }: De
   return (
     <div className={styles['content']}>
       <span>
-        <Trans
-          i18nKey="deleteConfirmation.text"
-          values={{ selected: selectedText, parts: translatedParts }}
-          components={{ b: <b /> }}
-        />
+        You&apos;re about to <b>permanently delete</b> {selectedText} {translatedParts}. Please, confirm to proceed.
       </span>
       <div className={styles['checkbox-wrapper']}>
         <Checkbox id="dont-show-again-checkbox" size="small" checked={isChecked} onChange={handleChange} />
@@ -52,8 +48,6 @@ type DeleteConfirmationButtonsProps = {
 };
 
 export function DeleteConfirmationButtons({ onDeleteClick, onCancelClick }: DeleteConfirmationButtonsProps) {
-  const { t } = useTranslation();
-
   return (
     <div className={styles['buttons']}>
       <Button variant="secondary" onClick={onCancelClick}>

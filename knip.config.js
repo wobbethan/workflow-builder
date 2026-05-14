@@ -1,7 +1,7 @@
 /*
   Knip is an export–import dependency checker.
 
-  If you want to use it, call pnpm knip.
+  If you want to use it, call bunx knip.
 
   You can also add " && knip" to "pre-push" and "check" in the root package.json
   to make it part of your development process.
@@ -34,7 +34,7 @@ export default {
         'src/app/features/props-passing/utils/get-diagram-model-from-input.ts',
         'src/app/features/props-passing/utils/get-diagram-model-from-store.ts',
       ],
-      ignoreDependencies: ['anymatch', 'javascript-obfuscator', 'html-to-image', 'jspdf', 'libavoid-js', 'web-worker'],
+      ignoreDependencies: ['anymatch', 'javascript-obfuscator', 'html-to-image', 'jspdf', 'web-worker'],
     },
     'apps/icons': {
       entry: 'index.ts',

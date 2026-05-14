@@ -39,10 +39,6 @@ export const en = {
       label: 'Trigger',
       description: 'Initiate workflows',
     },
-    aiAgent: {
-      label: 'AI Agent',
-      description: 'Delegate tasks',
-    },
   },
   propertiesBar: {
     label: 'Properties',
@@ -62,12 +58,6 @@ export const en = {
     selectedPlural: 'selected',
     deleteSelection: 'Delete Selection?',
     dontShowMeThisAgain: 'Don’t show me this again',
-  },
-  aiTools: {
-    title: 'AI Agent Tools',
-    addTool: 'Add Tool',
-    addToolSlot: 'Add Tool Slot',
-    modalTitle: 'Add Tools',
   },
   decisionBranches: {
     branch: 'Branch #{{index}}',
@@ -126,8 +116,9 @@ export const en = {
     closePropertiesBar: 'Close properties bar',
     importDiagram: 'Import File',
     save: 'Save',
-    changeLanguage: 'Change Language',
     copy: 'Copy',
+    changeLayoutDirectionToDown: 'Switch to top-to-bottom layout',
+    changeLayoutDirectionToRight: 'Switch to left-to-right layout',
   },
   snackbar: {
     saveDiagramSuccess: 'Saving diagram successfully',
@@ -137,9 +128,9 @@ export const en = {
     saveDiagramError: 'An error occurred while saving diagram',
     restoreDiagramSuccess: 'Locally saved data has been restored',
     restoreDiagramError: 'Could not load locally saved data',
-    aiConnectionError: 'Error in connection to AI server',
     wrongDiagramFormat: 'Wrong diagram format',
     contentCopied: 'Content copied to clipboard',
+    autoLayoutError: 'Auto layout could not be applied',
   },
   importExport: {
     export: 'Export',
@@ -152,6 +143,12 @@ export const en = {
       notJSONObject: 'The provided value is not a valid JSON object.',
       nodesWithoutDefinition: 'Unsupported node(s): {{nodesIds}}',
       nodesWithErrors: 'Node(s) with errors: {{nodesIds}}',
+    },
+  },
+  plugins: {
+    validation: {
+      missingDependency: 'Missing dependency for this field.',
+      missingMentionNodePrefix: 'Unknown node',
     },
   },
 } as const;

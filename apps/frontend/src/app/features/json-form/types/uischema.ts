@@ -1,5 +1,4 @@
 import {
-  AiToolsControlElement,
   DatePickerControlElement,
   DecisionBranchesControlElement,
   DynamicConditionsControlElement,
@@ -26,7 +25,6 @@ export type UISchemaControlElement<T extends string = string> = (
   | DatePickerControlElement
   | TextAreaControlElement
   | DynamicConditionsControlElement
-  | AiToolsControlElement
   | DecisionBranchesControlElement
   | VariableTextControlElement
   | VariableTextAreaControlElement

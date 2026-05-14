@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { useCallback } from 'react';
-import { Trans, useTranslation } from 'react-i18next';
 
 import { DiagramModel } from '@workflow-builder/types/common';
 
@@ -9,6 +8,7 @@ import styles from './template-selector.module.css';
 import useStore from '@/store/store';
 
 import { trackFutureChange } from '@/features/changes-tracker/stores/use-changes-tracker-store';
+import { t } from '@/features/i18n/t';
 
 import { templates } from '@/data/templates';
 import { useFitView } from '@/hooks/use-fit-view';
@@ -17,7 +17,6 @@ import { closeModal } from '../stores/use-modal-store';
 import { Tile } from './components/tile';
 
 export function TemplateSelector() {
-  const { t } = useTranslation();
   const setDiagramModel = useStore((store) => store.setDiagramModel);
   const fitView = useFitView();
 
@@ -30,11 +29,16 @@ export function TemplateSelector() {
     [setDiagramModel, fitView],
   );
 
+  const description = t('templateSelector.description');
+  const [descriptionBefore, descriptionAfter = ''] = description.split('<br/>');
+
   return (
     <div className={styles['container']}>
       <section className={styles['header']}>
         <span className={clsx('ax-public-p10', styles['sub-title'])}>
-          <Trans i18nKey="templateSelector.description" components={{ br: <br /> }} />
+          {descriptionBefore}
+          <br />
+          {descriptionAfter}
         </span>
       </section>
       <section className={styles['content']}>

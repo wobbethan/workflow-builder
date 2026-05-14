@@ -2,20 +2,29 @@
   "name": "workflow-builder",
   "version": "1.2.0",
   "private": true,
+  "workspaces": ["apps/*"],
+  "catalog": {
+    "@phosphor-icons/core": "^2.1.1",
+    "@xyflow/react": "12.10.0",
+    "react": "^19.1.0",
+    "@types/react": "19.1.8",
+    "react-dom": "^19.1.0",
+    "ajv": "^8.0.0"
+  },
   "scripts": {
-    "dev": "pnpm --filter frontend dev",
-    "dev:local": "LOCAL_OVERFLOW_UI=true pnpm --filter frontend dev",
-    "build": "pnpm -r build",
-    "preview-build": "pnpm --filter frontend preview-build",
-    "typecheck": "pnpm -r typecheck",
-    "lint": "pnpm -r lint",
-    "lint:fix": "pnpm -r lint:fix",
-    "build:frontend": "pnpm --filter frontend build",
+    "dev": "bun run --filter '@workflow-builder/frontend' dev",
+    "dev:local": "LOCAL_OVERFLOW_UI=true bun run --filter '@workflow-builder/frontend' dev",
+    "build": "bun run --filter './apps/*' build",
+    "preview-build": "bun run --filter '@workflow-builder/frontend' preview-build",
+    "typecheck": "bun run --filter './apps/*' typecheck",
+    "lint": "bun run --filter './apps/*' lint",
+    "lint:fix": "bun run --filter './apps/*' lint:fix",
+    "build:frontend": "bun run --filter '@workflow-builder/frontend' build",
     "format": "prettier --write --log-level silent \"**/*.+(css|ts|tsx|json|md|mdx|astro)\"",
-    "test": "pnpm --filter frontend test",
-    "check": "pnpm lint && pnpm typecheck && pnpm format",
+    "test": "bun run --filter '@workflow-builder/frontend' test",
+    "check": "bun run lint && bun run typecheck && bun run format",
     "pre-commit": "lint-staged",
-    "pre-push": "pnpm format",
+    "pre-push": "bun run format",
     "prepare": "husky"
   },
   "devDependencies": {
@@ -39,8 +48,7 @@
     "typescript-eslint": "^8.22.0"
   },
   "engines": {
-    "node": "22.12.0",
-    "pnpm": "10.9.0"
+    "bun": ">=1.2.0"
   },
-  "packageManager": "pnpm@10.9.0"
+  "packageManager": "bun@1.3.13"
 }

@@ -1,8 +1,8 @@
-import i18n from 'i18next';
-
 import { Icon } from '@workflow-builder/icons';
 
 import useStore from '@/store/store';
+
+import { t } from '@/features/i18n/t';
 
 import { openModal } from '@/features/modals/stores/use-modal-store';
 
@@ -12,7 +12,7 @@ export function openTemplateSelectorModal() {
   openModal({
     content: <TemplateSelector />,
     icon: <Icon name="Cube" />,
-    title: i18n.t('plugins.help.header'),
+    title: t('templateSelector.title'),
     onModalClosed: () => useStore.getState().setDiagramModel(undefined, { skipIfNotEmpty: true }),
   });
 }

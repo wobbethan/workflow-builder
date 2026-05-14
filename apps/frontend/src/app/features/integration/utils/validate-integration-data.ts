@@ -7,7 +7,7 @@ import { getIsValidLayoutDirections } from '@/utils/validation/get-is-valid-layo
 import { getNodeDefinition } from '@/utils/validation/get-node-definition';
 import { getNodeWithErrors } from '@/utils/validation/get-node-errors';
 
-import { TranslationKey, TranslationParams } from '@/features/i18n/i18next';
+import type { TranslationKey, TranslationParams } from '@/features/i18n';
 
 import { IntegrationDataFormat } from '../types';
 

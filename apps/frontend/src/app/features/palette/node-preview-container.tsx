@@ -5,14 +5,12 @@ import useStore from '@/store/store';
 
 import { useTranslateIfPossible } from '@/hooks/use-translate-if-possible';
 
-import { AiAgentNodeTemplate } from '../diagram/nodes/ai-agent-node-template/ai-agent-node-template';
 import { DecisionNodeTemplate } from '../diagram/nodes/decision-node-template/decision-node-template';
 import { StartNodeTemplate } from '../diagram/nodes/start-node-template/start-node-template';
 import { WorkflowNodeTemplate } from '../diagram/nodes/workflow-node-template/workflow-node-template';
 
 const NODE_TEMPLATES = {
   [NodeType.Node]: WorkflowNodeTemplate,
-  [NodeType.AiNode]: AiAgentNodeTemplate,
   [NodeType.StartNode]: StartNodeTemplate,
   [NodeType.DecisionNode]: DecisionNodeTemplate,
 };

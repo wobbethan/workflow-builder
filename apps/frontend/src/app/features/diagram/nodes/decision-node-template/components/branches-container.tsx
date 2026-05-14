@@ -1,9 +1,10 @@
 import clsx from 'clsx';
-import { useTranslation } from 'react-i18next';
 
 import { LayoutDirection } from '@workflow-builder/types/common';
 
 import styles from './branches-container.module.css';
+
+import { t } from '@/features/i18n/t';
 
 import { DecisionBranch } from '@/features/json-form/types/controls';
 
@@ -18,17 +19,20 @@ type Props = {
 };
 
 export function BranchesContainer({ decisionBranches, layoutDirection, onAddBranch }: Props) {
-  const { t } = useTranslation(undefined, { keyPrefix: 'decisionBranches' });
   // Branches should be displayed vertically when layout direction is horizontal (sic!)
   const isListVertical = layoutDirection === 'RIGHT';
 
   return (
-    <NodeSection label={t('branches')}>
+    <NodeSection label={t('decisionBranches.branches')}>
       <div className={clsx(styles['branches-container'], { [styles['vertical']]: isListVertical })}>
         {decisionBranches.map(({ id, sourceHandle, label }, index) => (
-          <ConnectableItem key={id} label={label || t('branch', { index: index + 1 })} handleId={sourceHandle} />
+          <ConnectableItem
+            key={id}
+            label={label || t('decisionBranches.branch', { index: index + 1 })}
+            handleId={sourceHandle}
+          />
         ))}
-        <PlaceholderButton label={t('addBranch')} onClick={onAddBranch} />
+        <PlaceholderButton label={t('decisionBranches.addBranch')} onClick={onAddBranch} />
       </div>
     </NodeSection>
   );

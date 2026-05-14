@@ -1,13 +1,13 @@
 import { Snackbar, SnackbarProps } from '@synergycodes/overflow-ui';
-import i18n from 'i18next';
 import { closeSnackbar, enqueueSnackbar } from 'notistack';
 
-import { DefaultTranslationMap } from '@/features/i18n/i18next';
+import { en } from '@/features/i18n/locales/en';
+import { t } from '@/features/i18n/t';
 
 const AUTO_HIDE_DURATION_TIME = 3000;
 
 const SNACKBAR_PREFIX = `snackbar` as const;
-type SnackbarKey = keyof DefaultTranslationMap[typeof SNACKBAR_PREFIX];
+type SnackbarKey = keyof typeof en.snackbar;
 
 type ShowSnackbarProps = Omit<SnackbarProps, 'title'> & {
   title: SnackbarKey;
@@ -28,7 +28,7 @@ export function showSnackbar({
   enqueueSnackbar(variant, {
     content: (key) => (
       <Snackbar
-        title={i18n.t(`${SNACKBAR_PREFIX}.${title}`)}
+        title={t(`${SNACKBAR_PREFIX}.${title}`)}
         variant={variant}
         subtitle={subtitle}
         buttonLabel={buttonLabel}

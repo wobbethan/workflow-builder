@@ -1,6 +1,5 @@
 import { Button, SnackbarType } from '@synergycodes/overflow-ui';
 import { useCallback, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { Icon } from '@workflow-builder/icons';
 
@@ -12,11 +11,11 @@ import { showSnackbar } from '@/utils/show-snackbar';
 
 import { getStoreDataForIntegration } from '@/store/slices/diagram-slice/actions';
 
+import { t } from '@/features/i18n/t';
+
 import { SyntaxHighlighterLazy } from '@/features/syntax-highlighter/components/syntax-highlighter-lazy';
 
 export function ExportModal() {
-  const { t } = useTranslation();
-
   const storeData = useMemo(() => {
     return JSON.stringify(getStoreDataForIntegration(), null, 2);
   }, []);

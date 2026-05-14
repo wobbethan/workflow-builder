@@ -50,7 +50,7 @@ export function getStoreDataForIntegration({
 
   return {
     name: state.documentName || '',
-    // It removes selected, dynamic points from avoid nodes etc.
+    // It removes selected state from nodes and clears dynamic edge routing points when present.
     nodes: shouldSkipDynamicValues ? skipDynamicValuesInNodes(state.nodes) : state.nodes,
     edges: shouldSkipDynamicValues ? skipDynamicValuesInEdges(state.edges) : state.edges,
     layoutDirection: state.layoutDirection,

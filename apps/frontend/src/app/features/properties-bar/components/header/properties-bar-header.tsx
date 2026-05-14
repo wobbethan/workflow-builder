@@ -1,9 +1,10 @@
 import { NavButton } from '@synergycodes/overflow-ui';
-import { useTranslation } from 'react-i18next';
 
 import { Icon } from '@workflow-builder/icons';
 
 import styles from './properties-bar-header.module.css';
+
+import { t } from '@/features/i18n/t';
 
 type Props = {
   header: string;
@@ -22,8 +23,6 @@ export function PropertiesBarHeader({
   name,
   onDotsClick,
 }: Props) {
-  const { t } = useTranslation();
-
   return (
     <div className={styles['header']}>
       <NavButton

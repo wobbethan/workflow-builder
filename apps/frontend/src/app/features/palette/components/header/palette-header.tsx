@@ -1,9 +1,10 @@
 import { NavButton } from '@synergycodes/overflow-ui';
-import { useTranslation } from 'react-i18next';
 
 import { Icon } from '@workflow-builder/icons';
 
 import styles from './palette-header.module.css';
+
+import { t } from '@/features/i18n/t';
 
 type PaletteHeaderProps = {
   onClick: () => void;
@@ -11,8 +12,6 @@ type PaletteHeaderProps = {
 };
 
 export function PaletteHeader({ onClick, isSidebarExpanded }: PaletteHeaderProps) {
-  const { t } = useTranslation();
-
   return (
     <div className={styles['container']}>
       <span className="ax-public-h7">{t('palette.nodesLibrary')}</span>

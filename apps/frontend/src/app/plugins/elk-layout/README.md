@@ -1,9 +1,5 @@
-# ELK Layout from Overflow Component Library
+# ELK layout (plugin stub)
 
-ELK Layout integrates **React Flow** with the ELK autolayout engine, providing automatic node and edge arrangement within a React Flow graph.
+Implementation lives in [`@/features/elk-layout`](../../features/elk-layout) so other code can import it without violating the `@/plugins/*` ESLint rule.
 
-https://www.overflow.dev/premium?path=/docs/interaction-elk-layout--code-docs
-
-## About overflow.dev
-
-A React Flow UI library built for developers, [Overflow](https://www.overflow.dev/) makes it easy to create visual workflows, automations, and tools with production-ready components
+This folder keeps `plugin-exports.ts` so [`plugins-core/index.ts`](../../features/plugins-core/index.ts) can register the plugin module like other optional plugins.

@@ -1,9 +1,10 @@
 import { Button } from '@synergycodes/overflow-ui';
-import { useTranslation } from 'react-i18next';
 
 import styles from './palette-footer.module.css';
 
 import useStore from '@/store/store';
+
+import { t } from '@/features/i18n/t';
 
 import { OptionalFooterContent } from '@/features/plugins-core/components/app/optional-footer-content';
 
@@ -13,7 +14,6 @@ type Props = {
 
 export function PaletteFooter({ onTemplateClick }: Props) {
   const isReadOnly = useStore((store) => store.isReadOnlyMode);
-  const { t } = useTranslation();
 
   return (
     <div className={styles['container']}>

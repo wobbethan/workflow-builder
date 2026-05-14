@@ -4,7 +4,6 @@ import { ComponentProps } from 'react';
 
 import styles from './json-form.module.css';
 
-import { aiToolsControlRenderer } from './controls/ai-tools-control/ai-tools-control';
 import { datePickerControlRenderer } from './controls/date-picker-control/date-picker-control';
 import { decisionBranchesControlRenderer } from './controls/decision-branches-control/decision-branches-control';
 import { dynamicConditionsControlRenderer } from './controls/dynamic-conditions-control/dynamic-conditions-control';
@@ -53,7 +52,6 @@ const renderers: JsonFormsRendererRegistryEntry[] = [
   datePickerControlRenderer,
   textAreaControlRenderer,
   dynamicConditionsControlRenderer,
-  aiToolsControlRenderer,
   decisionBranchesControlRenderer,
   variableTextControlRenderer,
   variableTextAreaControlRenderer,

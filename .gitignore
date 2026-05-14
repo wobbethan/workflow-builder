@@ -44,6 +44,9 @@ Thumbs.db
 # pnpm local store (created in container environments)
 .pnpm-store/
 
+# Bun install debug log
+bun-debug.log
+
 # Local Claude task files
 CLAUDE.local.md
 

@@ -10,7 +10,7 @@ This works well for a demo application but may not meet your needs of a real-wor
 
 #### 🌐 Standalone app - `index.html`
 
-By default, Workflow Builder is a standalone app. You can build the application (`pnpm build`) and host it on your site. If this approach works for you, you can use the existing pnpm build process to deploy it.
+By default, Workflow Builder is a standalone app. You can build the application (`bun run build`) and host it on your site. If this approach works for you, you can use the existing Bun build process to deploy it.
 
 #### 🧩 A component withing React application - `<WorkflowBuilder />`
 

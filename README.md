@@ -51,19 +51,19 @@ Monorepo of [Workflow Builder](https://www.workflowbuilder.io/) - a frontend-fir
 
 ### <a name="prerequisites">Prerequisites</a>
 
-You'll need `node` and `pnpm` with proper versions set in the root `package.json` and `.npmrc` file.
+You'll need [Bun](https://bun.sh/) (see the `engines` field in the root `package.json` for the minimum version).
 
 ### <a name="installation">Installation</a>
 
 1. Clone the repo
 2. Install packages from the root directory
-   `pnpm i`
+   `bun install`
 3. To start the app, run
-   `pnpm dev`
+   `bun dev`
 
 ### <a name="technical-overview">Technical Overview</a>
 
-Using `pnpm workspaces` Workflow Builder is split into packages placed in `apps/` directory:
+Using Bun workspaces, Workflow Builder is split into packages placed in `apps/` directory:
 
 - [`frontend`](./apps/frontend/README.md) - React app containing the core functionality of Workflow Builder
 - [`frontend-e2e`](./apps/frontend-e2e/README.md) - E2E tests for the frontend

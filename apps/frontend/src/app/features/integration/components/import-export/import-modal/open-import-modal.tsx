@@ -1,6 +1,6 @@
-import i18n from 'i18next';
-
 import { Icon } from '@workflow-builder/icons';
+
+import { t } from '@/features/i18n/t';
 
 import { openModal } from '@/features/modals/stores/use-modal-store';
 
@@ -10,6 +10,6 @@ export function openImportModal() {
   openModal({
     content: <ImportModal />,
     icon: <Icon name="DownloadSimple" />,
-    title: i18n.t('importExport.import'),
+    title: t('importExport.import'),
   });
 }

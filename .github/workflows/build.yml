@@ -20,20 +20,13 @@ jobs:
         with:
           submodules: true
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: 22
-          registry-url: "https://registry.npmjs.org"
-
-      - name: Enable Corepack
-        run: npm i -g corepack@latest
-
-      - name: Install pnpm
-        run: corepack prepare
+          bun-version: 1.3.13
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: bun install --frozen-lockfile
 
       - name: Build application
-        run: pnpm run build
+        run: bun run build

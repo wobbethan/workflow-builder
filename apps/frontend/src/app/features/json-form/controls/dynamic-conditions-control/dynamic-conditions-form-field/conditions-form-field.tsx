@@ -1,11 +1,12 @@
 import { Input, NavButton, SegmentPicker, Select } from '@synergycodes/overflow-ui';
 import clsx from 'clsx';
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { Icon } from '@workflow-builder/icons';
 
 import styles from './conditions-form-field.module.css';
+
+import { t } from '@/features/i18n/t';
 
 import { DynamicCondition } from '@/features/json-form/types/controls';
 import { comparisonsOperators, validateCondition } from '@/features/json-form/utils/conditional-transform';
@@ -20,8 +21,6 @@ type ConditionsFormFieldProps = {
 
 export function ConditionsFormField(props: ConditionsFormFieldProps) {
   const { condition, onChange, onRemove, shouldShowOperator = false, shouldShowValidation } = props;
-
-  const { t } = useTranslation();
 
   function handleChange(field: 'x' | 'comparisonOperator' | 'y' | 'logicalOperator', value: unknown) {
     onChange({

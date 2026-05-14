@@ -1,5 +1,6 @@
 import { Button } from '@synergycodes/overflow-ui';
-import { useTranslation } from 'react-i18next';
+
+import { t } from '@/features/i18n/t';
 
 type Props = {
   closeModal: () => void;
@@ -7,7 +8,6 @@ type Props = {
 };
 
 export function ConditionModalFooter({ closeModal, handleConfirm }: Props) {
-  const { t } = useTranslation();
   return (
     <>
       <Button variant="secondary" onClick={closeModal} type="button">

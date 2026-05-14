@@ -31,9 +31,11 @@ export function registerDecorator<T extends { name?: string }>(registry: Map<str
 
   const entries = registry.get(key)!;
   const dedupKey = entry.name || getEntryFingerprint(entry as unknown as Record<string, unknown>);
-  const existingIndex = entries.findIndex(
-    (p) => getEntryFingerprint(p as unknown as Record<string, unknown>) === dedupKey,
-  );
+  const existingIndex = entry.name
+    ? entries.findIndex((p) => p.name === entry.name)
+    : entries.findIndex(
+        (p) => getEntryFingerprint(p as unknown as Record<string, unknown>) === dedupKey,
+      );
 
   if (existingIndex === -1) {
     entries.push(entry);

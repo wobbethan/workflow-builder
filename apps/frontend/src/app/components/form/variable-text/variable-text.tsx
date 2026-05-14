@@ -1,6 +1,6 @@
 import { NavButton } from '@synergycodes/overflow-ui';
 import { ReactElement, ReactNode, cloneElement, useCallback, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
+import { t } from '@/features/i18n/t';
 import { Mention, MentionDataItem, MentionsInput } from 'react-mentions-ts';
 
 import { Icon } from '@workflow-builder/icons';
@@ -170,7 +170,6 @@ export function VariableText({
   mentionsInputProps,
   mentionProps,
 }: VariableTextProps) {
-  const { t } = useTranslation();
   const singleLine = variant === 'text';
 
   const mentionData = useMemo(() => buildMentionData(suggestionGroups), [suggestionGroups]);
@@ -193,7 +192,7 @@ export function VariableText({
 
       return defaultLabel;
     },
-    [mentionData, t],
+    [mentionData],
   );
 
   const renderSuggestion = useCallback(

@@ -1,13 +1,14 @@
 import { CaretDown } from '@phosphor-icons/react';
 import { Input, Menu, NavButton } from '@synergycodes/overflow-ui';
 import { useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { Icon } from '@workflow-builder/icons';
 
 import styles from '../../app-bar.module.css';
 
 import useStore from '@/store/store';
+
+import { t } from '@/features/i18n/t';
 
 import { withOptionalComponentPlugins } from '@/features/plugins-core/adapters/adapter-components';
 
@@ -21,8 +22,6 @@ function ProjectSelectionComponent({ onDuplicateClick }: ProjectSelectionProps) 
   const setDocumentName = useStore((state) => state.setDocumentName);
   const [editName, setEditName] = useState<boolean>(false);
 
-  const { t } = useTranslation();
-
   const items = useMemo(
     () => [
       {
@@ -31,7 +30,7 @@ function ProjectSelectionComponent({ onDuplicateClick }: ProjectSelectionProps) 
         onClick: onDuplicateClick,
       },
     ],
-    [onDuplicateClick, t],
+    [onDuplicateClick],
   );
 
   return (

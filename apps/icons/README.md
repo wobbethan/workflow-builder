@@ -33,6 +33,6 @@ const ICON_SOURCES: IconSource[] = [
 ];
 ```
 
-2. Generate the icons using `pnpm i`. It will trigger the `prepare` script of `@workflow-builder/icons` package.
+2. Generate the icons using `bun install`. It will trigger the `prepare` script of `@workflow-builder/icons` package.
 
 3. Commit the newly generated `icons.gen.ts` file

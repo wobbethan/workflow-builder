@@ -4,18 +4,26 @@ This directory contains optional features that extend the app’s functionality 
 
 If you are looking for an adapter that connects them to the app, check out `@/features/plugins-core`.
 
+## Plugins enabled in this repository
+
+Every plugin listed in `apps/frontend/src/app/features/plugins-core/index.ts` is imported on startup. Each plugin under `apps/frontend/src/app/plugins/<name>/` includes a `plugin-exports.ts` or `plugin-exports.tsx` file so Vite resolves a real module (no “Fallback used for missing plugin…” for those paths).
+
+Most optional plugins ship as **UI shells** (toolbar buttons, app-bar controls, or overflow menu rows). Interacting with a shell calls `globalThis.alert` with a not-yet-implemented message until you replace that plugin’s exports with real behavior.
+
+Toolbar, overflow-menu, and right-hand app-bar **shell clusters** are registered together in `plugins/app-bar-plugin-shells` so icons stay in a single flex row and are not squeezed out by the header layout.
+
 ## Workflow Builder with plugins
 
 https://app.workflowbuilder.io/
 
-Here is the full version of the Workflow Builder with plugins (e.g., edges, layout, widgets).
+Here is the full version of the Workflow Builder with plugins (e.g., edges, layout, validation).
 
 You can compare it with your local version.
 
 ## Main features of plugins
 
 - Allows users to create plugins in the plugin directory and remove them without breaking the app
-- Vite serves stubs for removed plugins (there is a log in the console when it is served)
+- Vite serves stubs only when an import in `plugins-core/index.ts` points at a path with **no** `plugin-exports` module (`plugin-exports.ts` / `plugin-exports.tsx`)
 - ESLint warns users that they cannot import files directly from @/plugins and must use adapters
 - Plugins can modify the base code, alter function inputs and outputs, add hooks, and customize prompts
 - Plugins have an additional parameter priority, allowing the user to define which plugin should be applied first
@@ -28,7 +36,7 @@ If you want to see how the plugin logic works in a smaller example, we have prep
 
 1. Create your plugin directory, for example: `plugins/example`.
 2. Add your `<ExampleComponent />` to `plugins/example/components/example-component.tsx`.
-3. In `plugins/example/plugin-exports` import dependencies and add:
+3. In `plugins/example/plugin-exports.tsx` (or `.ts`) import dependencies and add:
 
 ```ts
 registerComponentDecorator('OptionalFooterContent', {
@@ -44,7 +52,7 @@ Your component should now be displayed in the left sidebar (palette) footer.
 
 ### How to remove plugin?
 
-Simply remove the folder of your plugin and restart the application. It will still work with empty stubs instead of registration.
+Simply remove the import from `apps/frontend/src/app/features/plugins-core/index.ts` and delete the plugin folder if you no longer need it. If you keep the import, keep a `plugin-exports.ts` or `plugin-exports.tsx` (even empty) so the build does not fall back to the generic stub.
 
 #### How to remove "Fallback used for missing plugin..."?
 
@@ -100,7 +108,7 @@ const wasTreePluginAdded = hasRegisteredComponentDecorator('OptionalAppBarContro
 
 ### How to add a plugin conditionally?
 
-In your `plugin-exports.ts` file, you can add an if statement.
+In your `plugin-exports.ts` or `plugin-exports.tsx` file, you can add an if statement.
 
 ```tsx
 if (SHOULD_ADD_TREE_BUTTON === true) {

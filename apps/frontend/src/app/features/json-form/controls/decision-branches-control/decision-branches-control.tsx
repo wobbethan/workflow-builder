@@ -1,9 +1,10 @@
 import { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { getStoreSingleSelected } from '@/store/slices/diagram-slice/actions';
 
 import { PlaceholderButton } from '@/features/diagram/nodes/components/placeholder-button/placeholder-button';
+
+import { t } from '@/features/i18n/t';
 
 import { DecisionBranch, DecisionBranchesControlProps } from '../../types/controls';
 import { createControlRenderer } from '../../utils/rendering';
@@ -14,8 +15,6 @@ function DecisionBranchesControl(props: DecisionBranchesControlProps) {
   const { data = [], handleChange, path, enabled } = props;
 
   const decisionBranches = data as DecisionBranch[];
-
-  const { t } = useTranslation();
 
   const onUpdateBranch = useCallback(
     (id: string, partialBranch: Partial<DecisionBranch>) => {

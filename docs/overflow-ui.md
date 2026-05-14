@@ -16,8 +16,8 @@ some-directory/
   workflow-builder/
 ```
 
-1. Build the dist files in the overflow-ui tokens package: `pnpm tokens prepare`.
-2. Build the `overflow-ui` dist: `pnpm ui build`.
-3. In this repository, start the frontend with: `pnpm dev:local`
+1. In the **overflow-ui** clone, build the dist files in the tokens package: `pnpm tokens prepare` (or the equivalent in that repo).
+2. In **overflow-ui**, build the `overflow-ui` dist: `pnpm ui build` (or the equivalent in that repo).
+3. In this repository, start the frontend with: `bun dev:local`
 
 The `dev:local` script sets a `LOCAL_OVERFLOW_UI=true` flag that makes Vite resolve `@synergycodes/overflow-ui` directly from the local `../overflow-ui/packages/ui/dist/` instead of from npm. No manual changes to `package.json` or CSS imports are needed.

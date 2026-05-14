@@ -8,7 +8,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "prepare": "pnpm build"
+    "prepare": "bun run build"
   },
   "devDependencies": {
     "@phosphor-icons/core": "catalog:",

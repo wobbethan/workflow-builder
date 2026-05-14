@@ -1,21 +1,19 @@
 import { DotsThreeVertical } from '@phosphor-icons/react';
 import { Menu, MenuItemProps, NavButton } from '@synergycodes/overflow-ui';
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import styles from '../../app-bar.module.css';
 
 import { OptionalAppBarControls } from '@/features/plugins-core/components/app/optional-app-bar-controls';
+
+import { t } from '@/features/i18n/t';
 
 import { getControlsDotsItems } from '../../functions/get-controls-dots-items';
 import { ToggleDarkMode } from '../toggle-dark-mode/toggle-dark-mode';
 import { ToggleReadyOnlyMode } from '../toggle-read-only-mode/toggle-read-only-mode';
 
 export function Controls() {
-  const { t } = useTranslation();
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const items: MenuItemProps[] = useMemo(() => getControlsDotsItems(), [t]);
+  const items: MenuItemProps[] = useMemo(() => getControlsDotsItems(), []);
 
   return (
     <div className={styles['controls']}>

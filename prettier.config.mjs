@@ -1,4 +1,4 @@
-// Type "pnpm format" to apply formatting
+// Type "bun run format" to apply formatting
 
 /**
  * @type {import("prettier").Config}

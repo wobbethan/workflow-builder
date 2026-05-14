@@ -3,9 +3,6 @@ import { InputProps, TextAreaProps } from '@synergycodes/overflow-ui';
 
 import { FieldSchema } from '@workflow-builder/types/node-schema';
 
-import { NodeDataProperties } from '@/features/json-form/types/default-properties';
-
-import { AiAgentNodeSchema } from '../../../data/nodes/ai-agent/schema';
 import { ComparisonOperator, LogicalOperator } from '../utils/conditional-transform';
 import { UISchemaRule } from './rules';
 import { UISchemaControlElement } from './uischema';
@@ -100,15 +97,6 @@ export type BaseControlProps = Override<
   }
 >;
 
-export type AiAgentTool = NonNullable<NodeDataProperties<AiAgentNodeSchema>['tools']>[number];
-
-export type AiToolsControlElement = Override<
-  BaseControlElement,
-  {
-    type: 'AiTools';
-  }
->;
-export type AiToolsControlProps = ControlProps<AiAgentTool[], AiToolsControlElement>;
 
 export type VariableTextControlElement = Override<
   BaseControlElement,

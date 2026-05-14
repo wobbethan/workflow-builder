@@ -2,11 +2,12 @@ import { SlidersHorizontal, Trash } from '@phosphor-icons/react';
 import { Input, NavButton } from '@synergycodes/overflow-ui';
 import clsx from 'clsx';
 import { useCallback, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import styles from './branch-card.module.css';
 
 import { FormControlWithLabel } from '@/components/form/form-control-with-label/form-control-with-label';
+
+import { t } from '@/features/i18n/t';
 
 import { DecisionBranch } from '@/features/json-form/types/controls';
 import { closeModal, openModal } from '@/features/modals/stores/use-modal-store';
@@ -27,7 +28,6 @@ type Props = {
 
 export function BranchCard({ branch, index, onUpdate, onRemove, enabled = true }: Props) {
   const formRef = useRef<ConditionsFormHandle>(null);
-  const { t } = useTranslation();
   const { label, conditions, id } = branch;
   const conditionCount = conditions.length;
 
@@ -47,7 +47,7 @@ export function BranchCard({ branch, index, onUpdate, onRemove, enabled = true }
       title: t('conditions.title'),
       footer: <ConditionModalFooter closeModal={closeModal} handleConfirm={handleConfirm} />,
     });
-  }, [conditions, t, handleConfirm, onUpdate, id]);
+  }, [conditions, handleConfirm, onUpdate, id]);
 
   const onLabelChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {

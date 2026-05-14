@@ -1,9 +1,10 @@
 import { MinusCircle } from '@phosphor-icons/react';
 import { Edge, Node } from '@xyflow/react';
 import { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import useStore from '@/store/store';
+
+import { t } from '@/features/i18n/t';
 
 import { closeModal, openModal } from '../stores/use-modal-store';
 import { DeleteConfirmation, DeleteConfirmationButtons } from './delete-confirmation';
@@ -18,7 +19,6 @@ type Props = {
 export function useDeleteConfirmation() {
   const shouldSkipShowingConfirmation = useStore((state) => state.shouldSkipShowingConfirmation);
   const setShouldSkipShowDeleteConfirmation = useStore((state) => state.setShouldSkipShowDeleteConfirmation);
-  const { t } = useTranslation();
 
   const handleDeleteClick = useCallback(
     (onDeleteClick: () => void, shouldShowAgain: boolean) => {
@@ -61,7 +61,7 @@ export function useDeleteConfirmation() {
         onModalClosed: onModalClosed,
       });
     },
-    [handleDeleteClick, t, shouldSkipShowingConfirmation],
+    [handleDeleteClick, shouldSkipShowingConfirmation],
   );
 
   return { openDeleteConfirmationModal };

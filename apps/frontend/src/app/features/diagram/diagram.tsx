@@ -9,8 +9,9 @@ import {
   OnSelectionChangeParams,
   ReactFlow,
   SelectionMode,
+  useUpdateNodeInternals,
 } from '@xyflow/react';
-import { DragEventHandler, useCallback, useEffect, useMemo } from 'react';
+import { DragEventHandler, useCallback, useEffect, useLayoutEffect, useMemo } from 'react';
 import { DragEvent } from 'react';
 
 import { WorkflowBuilderOnSelectionChangeParams } from '@workflow-builder/types/common';
@@ -57,7 +58,17 @@ function DiagramContainerComponent({ edgeTypes = {} }: { edgeTypes?: EdgeTypes }
   const { openDeleteConfirmationModal } = useDeleteConfirmation();
 
   const setConnectionBeingDragged = useStore((store) => store.setConnectionBeingDragged);
+  const layoutDirection = useStore((store) => store.layoutDirection);
   const nodeTypes = useNodeTypes();
+  const updateNodeInternals = useUpdateNodeInternals();
+
+  useLayoutEffect(() => {
+    const nodeIds = useStore.getState().nodes.map((node) => node.id);
+    if (nodeIds.length === 0) {
+      return;
+    }
+    updateNodeInternals(nodeIds);
+  }, [layoutDirection, updateNodeInternals]);
 
   const onDragOver = useCallback((event: DragEvent) => {
     event.preventDefault();
@@ -187,6 +198,7 @@ function DiagramContainerComponent({ edgeTypes = {} }: { edgeTypes?: EdgeTypes }
         panOnDrag={panOnDrag}
         selectionMode={SelectionMode.Partial}
         deleteKeyCode={deleteKeyCode}
+        proOptions={{ hideAttribution: true }}
       >
         <Background />
       </ReactFlow>

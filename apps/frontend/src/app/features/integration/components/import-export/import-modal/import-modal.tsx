@@ -1,7 +1,6 @@
 import { Button, SnackbarType } from '@synergycodes/overflow-ui';
 import clsx from 'clsx';
 import { useCallback, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { Icon } from '@workflow-builder/icons';
 
@@ -13,6 +12,7 @@ import { setStoreDataFromIntegration } from '@/store/slices/diagram-slice/action
 
 import { trackFutureChange } from '@/features/changes-tracker/stores/use-changes-tracker-store';
 import { IntegrationDataError, validateIntegrationData } from '@/features/integration/utils/validate-integration-data';
+import { t } from '@/features/i18n/t';
 import { closeModal } from '@/features/modals/stores/use-modal-store';
 import { SyntaxHighlighterLazy } from '@/features/syntax-highlighter/components/syntax-highlighter-lazy';
 
@@ -25,7 +25,6 @@ export function ImportModal() {
     errors: [],
     warnings: [],
   });
-  const { t } = useTranslation();
 
   const handleImport = useCallback(
     ({ shouldIgnoreWarnings }: { shouldIgnoreWarnings: boolean }) => {
@@ -65,7 +64,7 @@ export function ImportModal() {
       {(errors.length > 0 || warnings.length > 0) && (
         <div className={clsx('ax-public-p10', styles['error'])}>
           {[...errors, ...warnings].map(({ message, messageParams }) => (
-            <div key={message}>{t(message, messageParams) as string}</div>
+            <div key={message}>{t(message, messageParams)}</div>
           ))}
         </div>
       )}
