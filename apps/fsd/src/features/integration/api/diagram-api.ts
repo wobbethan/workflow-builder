@@ -1,9 +1,8 @@
+import { getDiagramApiUrl } from '../config';
 import type { IntegrationDataFormat, IntegrationDataFormatOptional } from '../types';
 
-const DIAGRAM_API_URL = `${location.origin}/fake-api`;
-
 export async function fetchDiagram(): Promise<IntegrationDataFormatOptional | undefined> {
-  const response = await fetch(DIAGRAM_API_URL);
+  const response = await fetch(getDiagramApiUrl());
 
   if (!response.ok) {
     return undefined;
@@ -13,7 +12,7 @@ export async function fetchDiagram(): Promise<IntegrationDataFormatOptional | un
 }
 
 export async function saveDiagram(data: IntegrationDataFormat): Promise<boolean> {
-  const response = await fetch(DIAGRAM_API_URL, {
+  const response = await fetch(getDiagramApiUrl(), {
     body: JSON.stringify(data),
     method: 'POST',
     headers: {

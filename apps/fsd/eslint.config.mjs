@@ -13,7 +13,7 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   {
-    ignores: ['.next/**', 'next-env.d.ts', 'old-workflow-builder/**'],
+    ignores: ['.next/**', 'next-env.d.ts'],
   },
   ...baseEslintConfig,
   ...compat.extends('next'),

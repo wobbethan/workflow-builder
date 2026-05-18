@@ -1,17 +1,20 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "ignoreDeprecations": "6.0",
-    "types": ["node"],
-    "jsx": "preserve",
+    "target": "ES2018",
+    "lib": ["dom", "dom.iterable", "es2022"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
     "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "baseUrl": ".",
+    "plugins": [{ "name": "next" }],
     "paths": {
       "@/*": ["./src/*"],
       "@/entities/*": ["./src/entities/*"],
@@ -23,10 +26,7 @@
       "@/utils/*": ["./src/shared/utils/*"],
       "@/store/*": ["./src/shared/store/*"],
       "@/widgets/*": ["./src/widgets/*"]
-    },
-    "allowJs": true,
-    "isolatedModules": true,
-    "lib": ["dom", "dom.iterable", "es2022"]
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -36,11 +36,5 @@
     "src/**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "src/**/*.spec.ts",
-    "src/**/*.test.ts",
-    "src/**/*.spec.tsx",
-    "src/**/*.test.tsx"
-  ]
+  "exclude": ["node_modules", "src/**/*.spec.ts", "src/**/*.test.ts"]
 }

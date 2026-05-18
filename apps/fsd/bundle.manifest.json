@@ -1,0 +1,27 @@
+{
+  "name": "workflow-builder-kit",
+  "version": "1.0.0",
+  "description": "Paths to copy for a portable workflow builder drop-in",
+  "paths": [
+    "src",
+    "app",
+    "package.json",
+    "package.portable.json",
+    "tsconfig.json",
+    "tsconfig.portable.json",
+    "next.config.ts",
+    "postcss.config.mjs",
+    "next-env.d.ts",
+    "scripts/patch-overflow-ui-css.mjs",
+    "scripts/stop-dev-server.mjs",
+    "vendor/overflow-ui-index.css",
+    "PORTABILITY.md",
+    ".env.example",
+    "app/fake-api/route.ts"
+  ],
+  "externalPackage": {
+    "name": "@workflow-builder/icons",
+    "copyFromMonorepo": "apps/icons",
+    "targetPath": "packages/icons"
+  }
+}

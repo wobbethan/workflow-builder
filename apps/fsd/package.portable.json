@@ -1,5 +1,5 @@
 {
-  "name": "@workflow-builder/fsd",
+  "name": "workflow-builder-kit",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -10,16 +10,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "lint:fix": "eslint --fix",
-    "typecheck": "tsc --noEmit",
-    "bump-deps": "bunx npm-check-updates --deep -u -x recharts && bun install --force"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@jsonforms/core": "^3.7.0",
     "@jsonforms/react": "^3.7.0",
     "@phosphor-icons/react": "^2.1.10",
     "@synergycodes/overflow-ui": "1.0.0-beta.26",
-    "@workflow-builder/icons": "workspace:*",
+    "@workflow-builder/icons": "file:./packages/icons",
     "@xyflow/react": "12.10.0",
     "ace-builds": "^1.44.0",
     "ajv": "^8.0.0",
