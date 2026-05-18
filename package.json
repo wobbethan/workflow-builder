@@ -2,7 +2,9 @@
   "name": "workflow-builder",
   "version": "1.2.0",
   "private": true,
-  "workspaces": ["apps/*"],
+  "workspaces": [
+    "apps/*"
+  ],
   "catalog": {
     "@phosphor-icons/core": "^2.1.1",
     "@xyflow/react": "12.10.0",
@@ -12,7 +14,8 @@
     "ajv": "^8.0.0"
   },
   "scripts": {
-    "dev": "bun run --filter '@workflow-builder/frontend' dev",
+    "dev": "bun run --filter '@workflow-builder/fsd' dev",
+    "dev:stop": "bun run --filter '@workflow-builder/fsd' dev:stop",
     "dev:local": "LOCAL_OVERFLOW_UI=true bun run --filter '@workflow-builder/frontend' dev",
     "build": "bun run --filter './apps/*' build",
     "preview-build": "bun run --filter '@workflow-builder/frontend' preview-build",

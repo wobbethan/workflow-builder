@@ -2,8 +2,18 @@
 
 # compiled output
 dist
+build
 tmp
 /out-tsc
+*.tsbuildinfo
+
+# Next.js
+.next/
+out/
+
+# Turbo / Vercel
+.turbo/
+.vercel/
 
 # dependencies
 node_modules
@@ -39,13 +49,28 @@ Thumbs.db
 
 .nx/
 
+# Environment variables
+.env
+.env.*
+!.env.example
 **/.env.local
 
 # pnpm local store (created in container environments)
 .pnpm-store/
 
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
 # Bun install debug log
 bun-debug.log
+
+# Test / lint caches
+.eslintcache
+.cache/
 
 # Local Claude task files
 CLAUDE.local.md

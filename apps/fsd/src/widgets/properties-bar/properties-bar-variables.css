@@ -1,0 +1,3 @@
+:root {
+  --wb-properties-bar-width: var(--wb-sidebar-expanded-width);
+}
