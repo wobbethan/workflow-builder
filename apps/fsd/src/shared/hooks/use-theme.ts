@@ -4,9 +4,14 @@ const THEME_KEY = 'wb-theme';
 type Theme = 'dark' | 'light';
 
 export function useTheme() {
-  const [theme, setTheme] = useState<Theme>(() => {
-    return (localStorage.getItem(THEME_KEY) || 'light') as Theme;
-  });
+  const [theme, setTheme] = useState<Theme>('light');
+
+  useEffect(() => {
+    const stored = localStorage.getItem(THEME_KEY) as Theme | null;
+    if (stored) {
+      setTheme(stored);
+    }
+  }, []);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
