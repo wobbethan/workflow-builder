@@ -29,7 +29,7 @@ import {
   callNodeChangedListeners,
   destroyNodeChangedListeners,
 } from '@/widgets/diagram/listeners/node-changed-listeners';
-import { useDeleteConfirmation } from '@/features/modals/delete-confirmation/use-delete-confirmation';
+import { useDeleteConfirmation } from '@/features/delete-node/hooks/use-delete-confirmation';
 
 import { usePaletteDrop } from '@/shared/hooks/use-palette-drop';
 

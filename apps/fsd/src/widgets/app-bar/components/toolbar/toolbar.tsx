@@ -1,4 +1,4 @@
-import { SaveButton } from '@/features/saving';
+import { SaveButton } from '@/features/save-flow';
 
 import { appBarClasses } from '../../app-bar-classes';
 

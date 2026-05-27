@@ -2,8 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 
 import { getStoreDataForIntegration } from '@/store/slices/diagram-slice/actions';
 
-import type { OnSave } from '@/features/saving/types';
-import { showSnackbarSaveErrorIfNeeded, showSnackbarSaveSuccessIfNeeded } from '@/features/saving/utils/show-snackbar-save';
+import type { OnSave } from '@/features/save-flow/types';
+import { showSnackbarSaveErrorIfNeeded, showSnackbarSaveSuccessIfNeeded } from '@/features/save-flow/utils/show-snackbar-save';
 
 import { fetchDiagram, saveDiagram } from '../api/diagram-api';
 import type { IntegrationDataFormatOptional } from '../types';

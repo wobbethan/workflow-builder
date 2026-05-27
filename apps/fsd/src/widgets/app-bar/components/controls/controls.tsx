@@ -2,7 +2,7 @@ import { DotsThreeVertical } from '@phosphor-icons/react';
 import { Menu, MenuItemProps, NavButton } from '@synergycodes/overflow-ui';
 import { useMemo } from 'react';
 
-import { LayoutControlsCluster } from '@/features/auto-layout';
+import { LayoutControlsCluster } from '@/features/auto-organize-layout';
 
 import { appBarClasses } from '../../app-bar-classes';
 import { getControlsDotsItems } from '../../functions/get-controls-dots-items';

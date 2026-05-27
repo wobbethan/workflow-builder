@@ -2,8 +2,8 @@ import { MinusCircle } from '@phosphor-icons/react';
 import { Edge, Node } from '@xyflow/react';
 import { useCallback } from 'react';
 
-import { closeModal, openModal } from '../stores/use-modal-store';
-import { DeleteConfirmation, DeleteConfirmationButtons } from './delete-confirmation';
+import { closeModal, openModal } from '../../modals/stores/use-modal-store';
+import { DeleteConfirmation, DeleteConfirmationButtons } from '../ui/delete-confirmation';
 
 type Props = {
   nodes: Node[];

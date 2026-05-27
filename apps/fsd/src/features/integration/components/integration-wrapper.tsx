@@ -1,7 +1,7 @@
 import { PropsWithChildren, useEffect } from 'react';
 
-import { SavingContextWrapper } from '@/features/saving/context/saving-context-wrapper';
-import type { OnSave } from '@/features/saving/types';
+import { SavingContextWrapper } from '@/features/save-flow/context/saving-context-wrapper';
+import type { OnSave } from '@/features/save-flow/types';
 
 import type { IntegrationDataFormatOptional } from '../types';
 import { loadDiagramData } from '../utils/load-diagram-data';

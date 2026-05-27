@@ -4,7 +4,7 @@ import { showSnackbar } from '@/utils/show-snackbar';
 
 import { setStoreDataFromIntegration } from '@/store/slices/diagram-slice/actions';
 
-import { useSavingStore } from '@/features/saving/stores/use-saving-store';
+import { useSavingStore } from '@/features/save-flow/stores/use-saving-store';
 
 import type { IntegrationDataFormatOptional } from '../types';
 

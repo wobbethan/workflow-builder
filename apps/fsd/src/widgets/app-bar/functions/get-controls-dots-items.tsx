@@ -2,8 +2,8 @@ import { MenuItemProps } from '@synergycodes/overflow-ui';
 
 import { Icon } from '@workflow-builder/icons';
 
-import { openExportModal } from '@/features/export';
-import { openImportModal } from '@/features/import';
+import { openExportModal } from '@/features/export-flow';
+import { openImportModal } from '@/features/import-flow';
 
 export function getControlsDotsItems(): MenuItemProps[] {
   return [
