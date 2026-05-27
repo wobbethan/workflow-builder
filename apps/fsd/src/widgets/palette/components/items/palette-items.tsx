@@ -3,8 +3,6 @@ import { DragEvent } from 'react';
 
 import { PaletteGroup, PaletteItem as PaletteItemType } from '@/shared/types/common';
 
-import styles from './palette-items.module.css';
-
 import { PaletteItem } from './palette-item';
 
 type PaletteItemsProps = {
@@ -16,7 +14,7 @@ type PaletteItemsProps = {
 
 export function PaletteItems({ items, onDragStart, onMouseDown, isDisabled = false }: PaletteItemsProps) {
   return (
-    <div className={styles['container']}>
+    <div className="flex flex-col gap-2 box-border">
       {items.map((itemOrGroup) => {
         const isGroup = Array.isArray((itemOrGroup as PaletteGroup)?.groupItems);
 
@@ -26,11 +24,11 @@ export function PaletteItems({ items, onDragStart, onMouseDown, isDisabled = fal
           return (
             <Accordion
               key={group.label}
-              className={styles['accordion']}
+              className="[&_hr]:hidden"
               label={group.label}
               defaultOpen={group.isOpen}
             >
-              <div className={styles['accordion-content']}>
+              <div className="flex flex-col gap-2 box-border">
                 {group.groupItems.map((item) => (
                   <PaletteItem
                     key={item.type}

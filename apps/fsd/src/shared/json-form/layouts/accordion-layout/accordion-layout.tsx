@@ -1,7 +1,5 @@
 import { Accordion } from '@synergycodes/overflow-ui';
 
-import styles from './accordion-layout.module.css';
-
 import { AccordionLayoutElement, LayoutProps } from '../../types/layouts';
 import { createLayoutRenderer } from '../../utils/rendering';
 import { LayoutWrapper } from '../layout-wrapper';
@@ -13,7 +11,9 @@ function AccordionLayout(props: LayoutProps<AccordionLayoutElement>) {
   return (
     <LayoutWrapper {...props}>
       <Accordion label={uischema.label}>
-        <div className={styles['accordion-content']}>{renderElements(props)}</div>
+        <div className="flex flex-col gap-3 [&>div:not([class])]:flex [&>div:not([class])]:flex-col [&>div:not([class])]:gap-3">
+          {renderElements(props)}
+        </div>
       </Accordion>
     </LayoutWrapper>
   );

@@ -3,8 +3,6 @@ import { ForwardedRef, forwardRef, useCallback, useEffect, useImperativeHandle, 
 
 import { Icon } from '@workflow-builder/icons';
 
-import styles from './conditions-form.module.css';
-
 import { DynamicCondition } from '@/shared/json-form/types/controls';
 import { validateCondition } from '@/shared/json-form/utils/conditional-transform';
 import { closeModal } from '@/features/modals/stores/use-modal-store';
@@ -80,8 +78,8 @@ export const ConditionsForm = forwardRef<ConditionsFormHandle, ConditionsFormPro
     }, [handleConfirm]);
 
     return (
-      <form ref={formRef} className={styles['form']} onSubmit={handleConfirm}>
-        <div key={lastIndex} className={styles['controls-container']}>
+      <form ref={formRef} className="w-full" onSubmit={handleConfirm}>
+        <div key={lastIndex} className="flex flex-col gap-1.5">
           {conditions.map((condition, index) => (
             <ConditionsFormField
               key={index}
@@ -93,7 +91,7 @@ export const ConditionsForm = forwardRef<ConditionsFormHandle, ConditionsFormPro
             />
           ))}
         </div>
-        <Button className={styles['add-button']} size="small" variant="secondary" onClick={addCondition}>
+        <Button className="mt-4 w-full" size="small" variant="secondary" onClick={addCondition}>
           <Icon name="PlusCircle" />
         </Button>
       </form>

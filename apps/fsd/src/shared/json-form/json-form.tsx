@@ -2,8 +2,6 @@ import { JsonFormsRendererRegistryEntry } from '@jsonforms/core';
 import { JsonForms } from '@jsonforms/react';
 import { ComponentProps } from 'react';
 
-import styles from './json-form.module.css';
-
 import { datePickerControlRenderer } from './controls/date-picker-control/date-picker-control';
 import { decisionBranchesControlRenderer } from './controls/decision-branches-control/decision-branches-control';
 import { dynamicConditionsControlRenderer } from './controls/dynamic-conditions-control/dynamic-conditions-control';
@@ -32,7 +30,7 @@ type Props = Pick<
 export function JSONForm(props: Props) {
   const { readonly, ...rest } = props;
   return (
-    <div className={styles['json-form-container']}>
+    <div className="[&>div]:flex [&>div]:flex-col [&>div]:gap-4 [&_hr]:w-[calc(100%+2rem)]">
       <JsonForms renderers={renderers} validationMode="ValidateAndShow" {...rest} config={{ readonly }} />
     </div>
   );

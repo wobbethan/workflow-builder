@@ -4,8 +4,6 @@ import { useMemo } from 'react';
 
 import { Icon } from '@workflow-builder/icons';
 
-import styles from './conditions-form-field.module.css';
-
 import { DynamicCondition } from '@/shared/json-form/types/controls';
 import {
   comparisonOperatorLabels,
@@ -46,9 +44,9 @@ export function ConditionsFormField(props: ConditionsFormFieldProps) {
   return (
     <>
       {shouldShowOperator && (
-        <div className={styles['segment-picker-container']}>
+        <div className="flex justify-center items-center">
           <SegmentPicker
-            className={styles['segment-picker']}
+            className="w-[150px]"
             size="xx-small"
             value={condition.logicalOperator || 'AND'}
             onChange={(_, value) => handleChange('logicalOperator', value)}
@@ -59,22 +57,25 @@ export function ConditionsFormField(props: ConditionsFormFieldProps) {
         </div>
       )}
       <div
-        className={clsx(styles['container'], {
-          [styles['container-error']]: shouldShowValidation && (!condition.x || !condition.y),
-        })}
+        className={clsx(
+          'flex items-center gap-0.5 p-1 px-1.5 rounded-lg bg-[var(--wb-conditions-form-inputs-background)]',
+          {
+            'bg-[var(--wb-conditions-form-input-background-destructive)]': shouldShowValidation && (!condition.x || !condition.y),
+          }
+        )}
       >
         <NavButton onClick={() => {}} tooltip="Menu">
           <Icon name="DotsSixVertical" />
         </NavButton>
-        <div className={styles['inputs-container']}>
+        <div className="flex flex-col gap-0.5 w-full">
           <Input
-            className={styles['input']}
+            className="bg-[var(--wb-conditions-form-input-background)]"
             onChange={(event) => handleChange('x', event.target.value)}
             value={condition.x}
             error={errors.x}
           />
           <Select
-            className={styles['input']}
+            className="bg-[var(--wb-conditions-form-input-background)]"
             value={condition.comparisonOperator}
             items={comparisonsOperators.map((operator) => ({
               label: comparisonOperatorLabels[operator],
@@ -84,7 +85,7 @@ export function ConditionsFormField(props: ConditionsFormFieldProps) {
             error={errors.comparisonOperator}
           />
           <Input
-            className={styles['input']}
+            className="bg-[var(--wb-conditions-form-input-background)]"
             onChange={(event) => handleChange('y', event.target.value)}
             value={condition.y}
             error={errors.y}

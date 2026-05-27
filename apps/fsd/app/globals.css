@@ -138,6 +138,103 @@ body:has(.wb-variable-suggestions)::before {
   display: none !important;
 }
 
+/* Custom animations migrated from module.css files */
+@keyframes icon-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes pulse-indicator {
+  0% {
+    box-shadow: 0 0 0 0 var(--wb-indicator-dot-background-color);
+  }
+  70% {
+    box-shadow: 0 0 0 0.625rem transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+/* Indicator dot styles */
+:root {
+  --wb-indicator-dot-size: 0.75rem;
+  --wb-indicator-dot-radius: calc(var(--wb-indicator-dot-size) / 2);
+  --wb-indicator-dot-background-color: var(--ax-colors-orange-400);
+  --wb-indicator-dot-pulse-radius-size: 0.625rem;
+}
+
+/* Saving status styles */
+:root {
+  --wb-saving-status--in-progress-color: var(--ax-colors-acc1-500);
+  --wb-saving-status--saved-color: var(--ax-input-stroke-primary-success);
+  --wb-saving-status--not-saved-color: var(--ax-input-stroke-primary-error);
+}
+
+/* Import modal error styles */
+:root {
+  --wb-import-error-color: var(--ax-public-snackbar-title-color);
+  --wb-import-error-background-color: var(--ax-public-snackbar-error-background);
+  --wb-import-error-border: var(--ax-public-snackbar-border-size) solid var(--ax-public-snackbar-error-border);
+  --wb-import-error-border-radius: var(--ax-public-snackbar-border-radius);
+}
+
+/* Branch card styles */
+:root {
+  --wb-branch-card-padding: 0.5rem;
+  --wb-branch-card-border-radius: 0.5rem;
+  --wb-branch-card-border-width: 0.0625rem;
+  --wb-branch-card-border-color: var(--ax-ui-stroke-secondary-default);
+  --wb-branch-card-gap: 0.375rem;
+  --wb-branch-card-actions-gap: 0.375rem;
+  --wb-branch-card-chip-padding: 0.3125rem 0.375rem;
+  --wb-branch-card-chip-border-radius: 0.25rem;
+  --wb-branch-card-chip-background: var(--ax-ui-stroke-secondary-default);
+  --wb-branch-card-chip-color: var(--ax-chips-acc2-txt);
+  --wb-branch-card-chip-background-no-conditions: var(--ax-chips-acc2-bg);
+  --wb-branch-card-chip-gap: 0.25rem;
+}
+
+/* Conditions form styles */
+:root {
+  --wb-conditions-form-border-color: var(--ax-ui-stroke-primary-default);
+  --wb-conditions-form-border-radius: 0.75rem;
+  --wb-conditions-form-header-color: var(--ax-public-form-label-color);
+  --wb-conditions-form-tag-bg-color: var(--ax-chips-neutral-bg);
+  --wb-conditions-form-inputs-background: var(--ax-ui-bg-secondary-default);
+  --wb-conditions-form-input-background: var(--ax-ui-bg-primary-default);
+  --wb-conditions-form-input-background-destructive: var(--ax-colors-red-400-10);
+}
+
+/* Rich text control styles */
+:root {
+  --ax-public-form-rich-text-color: var(--ax-txt-secondary-default);
+}
+
 .wb-syntax-highlighter .ace_editor {
   padding: var(--ax-public-input-padding-medium);
   color: var(--wb-syntax-highlighter-color) !important;

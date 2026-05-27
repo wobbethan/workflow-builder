@@ -3,8 +3,6 @@ import { Input, NavButton } from '@synergycodes/overflow-ui';
 import clsx from 'clsx';
 import { useCallback, useRef } from 'react';
 
-import styles from './branch-card.module.css';
-
 import { FormControlWithLabel } from '@/ui/form/form-control-with-label/form-control-with-label';
 
 import { DecisionBranch } from '@/shared/json-form/types/controls';
@@ -58,10 +56,10 @@ export function BranchCard({ branch, index, onUpdate, onRemove, enabled = true }
   const onClickRemove = useCallback(() => onRemove(branch.id), [onRemove, branch]);
 
   return (
-    <div className={styles['branch-card']}>
-      <div className={styles['header']}>
+    <div className="relative flex flex-col items-start p-[var(--wb-branch-card-padding)] gap-[var(--wb-branch-card-gap)] rounded-[var(--wb-branch-card-border-radius)] border-[var(--wb-branch-card-border-width)] border-solid border-[var(--wb-branch-card-border-color)]">
+      <div className="w-full flex justify-between">
         <h1 className="ax-public-h10">Branch #{index + 1}</h1>
-        <div className={styles['actions']}>
+        <div className="flex gap-[var(--wb-branch-card-actions-gap)]">
           <NavButton onClick={onClickEdit}>
             <SlidersHorizontal weight="bold" />
           </NavButton>
@@ -81,9 +79,12 @@ export function BranchCard({ branch, index, onUpdate, onRemove, enabled = true }
         </FormControlWithLabel>
       </div>
       <button
-        className={clsx(styles['conditions-chip'], 'ax-public-p11', {
-          [styles['no-conditions']]: conditionCount === 0,
-        })}
+        className={clsx(
+          'ax-public-p11 flex p-[var(--wb-branch-card-chip-padding)] justify-center items-center gap-[var(--wb-branch-card-chip-gap)] rounded-[var(--wb-branch-card-chip-border-radius)] bg-[var(--wb-branch-card-chip-background)] border-none',
+          {
+            'text-[var(--wb-branch-card-chip-color)] bg-[var(--wb-branch-card-chip-background-no-conditions)]': conditionCount === 0,
+          }
+        )}
         onClick={onClickEdit}
       >
         {formatConditionCount(conditionCount)}

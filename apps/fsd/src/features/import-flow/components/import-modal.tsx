@@ -1,10 +1,7 @@
 import { Button, SnackbarType } from '@synergycodes/overflow-ui';
-import clsx from 'clsx';
 import { useCallback, useState } from 'react';
 
 import { Icon } from '@workflow-builder/icons';
-
-import styles from './import-modal.module.css';
 
 import { formatMessage } from '@/utils/format-message';
 import { showSnackbar } from '@/utils/show-snackbar';
@@ -59,19 +56,19 @@ export function ImportModal() {
   );
 
   return (
-    <div className={styles['container']}>
-      <p className={clsx('ax-public-p10', styles['tip'])}>
+    <div className="flex flex-col gap-3 w-full">
+      <p className="ax-public-p10 text-[var(--ax-txt-secondary-default)]">
         The simplest way to see the expected schema is to create a diagram and export it.
       </p>
       <SyntaxHighlighterLazy value={jsonToParse} onChange={(json) => setJsonToParse(json || '{}')} />
       {(errors.length > 0 || warnings.length > 0) && (
-        <div className={clsx('ax-public-p10', styles['error'])}>
+        <div className="ax-public-p10 p-[var(--ax-public-snackbar-padding)] text-[var(--wb-import-error-color)] bg-[var(--wb-import-error-background-color)] border-[var(--wb-import-error-border)] rounded-[var(--wb-import-error-border-radius)]">
           {[...errors, ...warnings].map(({ message, messageParams }) => (
             <div key={message}>{formatMessage(message, messageParams)}</div>
           ))}
         </div>
       )}
-      <div className={styles['actions']}>
+      <div className="flex gap-2 justify-end">
         {warnings.length > 0 && errors.length === 0 && (
           <Button variant="warning" onClick={() => handleImport({ shouldIgnoreWarnings: true })}>
             <Icon name="DownloadSimple" />

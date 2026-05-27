@@ -1,7 +1,5 @@
 import clsx from 'clsx';
 
-import styles from './group-layout.module.css';
-
 import { GroupLayoutElement, LayoutProps } from '../../types/layouts';
 import { createLayoutRenderer } from '../../utils/rendering';
 import { LayoutWrapper } from '../layout-wrapper';
@@ -12,8 +10,8 @@ function GroupLayout(props: LayoutProps<GroupLayoutElement>) {
 
   return (
     <LayoutWrapper {...props}>
-      <div className={styles['group-layout']}>
-        <h1 className={clsx(styles['group-header'], 'ax-public-h10')}>{uischema.label}</h1>
+      <div className="flex flex-col py-5 gap-3">
+        <h1 className={clsx('py-2', 'ax-public-h10')}>{uischema.label}</h1>
         {renderElements(props)}
       </div>
     </LayoutWrapper>
