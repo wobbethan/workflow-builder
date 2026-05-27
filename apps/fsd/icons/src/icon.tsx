@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import { Suspense } from 'react';
 
-import styles from './icon.module.css';
-
 import { type WBIcon, iconMap } from '../dist';
 
 type IconProps = {
@@ -73,7 +71,7 @@ export function Icon({ name, size = 'medium', color = 'currentColor', ...propert
         {...iconProps}
         className={clsx(
           {
-            [styles['optional-icon-fade-in']]: getShouldFadeIconWithCacheState(name),
+            'opacity-0 animate-[icon-fade-in_0.1s_ease-in_forwards]': getShouldFadeIconWithCacheState(name),
           },
           iconProps.className,
         )}
